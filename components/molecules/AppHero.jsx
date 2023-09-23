@@ -1,4 +1,4 @@
-import Fade from 'react-reveal/Fade';
+import { Fade } from "react-awesome-reveal";
 import DATA from '../../data/user.json';
 import AppContainer from '../atomics/AppContainer';
 import AppButton from '../atomics/AppButton';

@@ -162,7 +162,7 @@
       {
         "id": 1,
         "top": false,
-        "image": "https://firebasestorage.googleapis.com/v0/b/edwintantawi-25f09.appspot.com/o/projects%2Fcookingbox.png?alt=media",
+        "image": "/project.jpg",
         "name": "CookingBox",
         "stack": "HTML, CSS, PWA",
         "category": "Personal Project"
@@ -170,7 +170,7 @@
       {
         "id": 2,
         "top": false,
-        "image": "https://firebasestorage.googleapis.com/v0/b/edwintantawi-25f09.appspot.com/o/projects%2Fnetflix-clone.png?alt=media",
+        "image": "/project.jpg",
         "name": "Netflix Clone",
         "stack": "React JS, CSS, TMDB API",
         "category": "Personal Project"
@@ -178,23 +178,23 @@
       {
         "id": 3,
         "top": true,
-        "image": "https://firebasestorage.googleapis.com/v0/b/edwintantawi-25f09.appspot.com/o/projects%2Fwhatsapp-clone.png?alt=media",
+        "image": "/project.jpg",
         "name": "Whatsapp Clone",
         "stack": "React JS, CSS, Firebase",
         "category": "Personal Project"
       },
       {
         "id": 4,
-        "top": false,
-        "image": "https://firebasestorage.googleapis.com/v0/b/edwintantawi-25f09.appspot.com/o/projects%2Fweneeddev.png?alt=media",
+        "top": true,
+        "image": "/project.jpg",
         "name": "WeNeedDev",
         "stack": "HTML, CSS, Bootstrap 5",
         "category": "Personal Project"
       },
       {
         "id": 5,
-        "top": false,
-        "image": "https://firebasestorage.googleapis.com/v0/b/edwintantawi-25f09.appspot.com/o/projects%2Fpinterest-clone.png?alt=media",
+        "top": true,
+        "image": "/project.jpg",
         "name": "Pinterest Clone",
         "stack": "React JS, CSS, Unsplash API",
         "category": "Personal Project"

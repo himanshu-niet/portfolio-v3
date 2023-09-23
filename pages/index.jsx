@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import USER from '../data/user.json';
 import AppSection from '../components/molecules/AppSection';
 import AppProject from '../components/atomics/AppProject';

@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 const AppProject = ({ project }) => (
   <div className="bg-white border border-light-gray rounded-lg px-4 pt-6 text-center overflow-hidden">
