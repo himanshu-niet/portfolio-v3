@@ -21,7 +21,7 @@ const AppHero = () => (
           <p className="text-xs lg:text-base text-gray max-w-2xl tracking-widest mt-2 lg:mt-3 md:ml-1">
             {DATA.description}
           </p>
-          <AppButton title="GET RESUME" download href="https://drive.google.com/file/d/1YISjIx8hn5ZtnGqDoYtur7xj92LeufEZ/view?usp=sharing" />
+          <AppButton title="GET RESUME" download href="https://drive.google.com/file/d/1JJGDci_V5VVOfOEFDf-vGn6kw-3-PfNM/view?usp=sharing" />
         </div>
       </Fade>
     </AppContainer>
