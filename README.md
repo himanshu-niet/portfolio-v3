@@ -1,42 +1,151 @@
-## himanshu.tech
+Sure, here's the updated entity descriptions and relationships without the User entity: 
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+  
 
-## Getting Started
+### Enhanced Entity Descriptions 
 
-First, run the development server:
+  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Merchant** 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   - **Attributes:** Merchant_ID (PK), Business_Name, Business_Type, Email, Mobile_Number, Address, GSTIN, CIN, Created_At, Updated_At, Status (Active/Inactive), Logo, Contact_Person, Contact_Person_Phone, Business_Description, Website_URL, KYC_Status, Verification_Status, Account_Manager_ID (FK), Whitelisted_IPs 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+   - **Relationships:** Wallet, Transaction, Notification, Report, Verification 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+  
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+2. **Admin** 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   - **Attributes:** Admin_ID (PK), Name, Email, Mobile_Number, Created_At, Updated_At, Last_Login, Role_ID (FK), Status (Active/Inactive), Profile_Picture, Department, Two_Factor_Enabled, Permissions 
 
-## Learn More ,,
+   - **Relationships:** Merchant, Report, Notification, Role 
 
-To learn more about Next.js, take a look at the following resources:
+  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Transaction** 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   - **Attributes:** Transaction_ID (PK), Merchant_ID (FK), Amount, Transaction_Type (Credit/Debit), Status (Pending/Completed/Failed), Created_At, Updated_At, Transaction_Reference, Description, Payment_Method, Fee, Tax, Currency, Reconciliation_Status, Notification_Status 
 
-## Deploy on Vercel
+   - **Relationships:** Merchant, Wallet, Notification 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. **Wallet** 
+
+   - **Attributes:** Wallet_ID (PK), Merchant_ID (FK), Balance, Type (Payin/Payout), Created_At, Updated_At, Currency, Wallet_Name, Status (Active/Inactive), Last_Transaction_ID (FK) 
+
+   - **Relationships:** Merchant, Transaction 
+
+  
+
+5. **Verification** 
+
+   - **Attributes:** Verification_ID (PK), Merchant_ID (FK), Type (Adhar/PAN/GSTIN/CIN), Status (Verified/Pending/Failed), Created_At, Updated_At, Document_URL, Verified_By (Admin_ID FK), Verification_Notes 
+
+   - **Relationships:** Merchant 
+
+  
+
+6. **Notification** 
+
+   - **Attributes:** Notification_ID (PK), Merchant_ID (FK), Message, Type (Email/SMS), Status (Read/Unread), Created_At, Updated_At, Notification_Title, Sent_By (Admin_ID FK), Priority (Normal/High) 
+
+   - **Relationships:** Merchant, Transaction 
+
+  
+
+7. **Report** 
+
+   - **Attributes:** Report_ID (PK), Merchant_ID (FK), Admin_ID (FK), Report_Type (Transaction/Settlement), Data, Created_At, Updated_At, Generated_By (Admin_ID FK), File_URL, Status (Generated/Pending) 
+
+   - **Relationships:** Merchant, Admin 
+
+  
+
+8. **Role** 
+
+    - **Attributes:** Role_ID (PK), Role_Name, Created_At, Updated_At, Description 
+
+    - **Relationships:** Admin, Permission 
+
+  
+
+9. **Permission** 
+
+    - **Attributes:** Permission_ID (PK), Permission_Name, Created_At, Updated_At, Description 
+
+    - **Relationships:** Role 
+
+  
+
+### Enhanced ER Diagram Representation 
+
+  
+
+```plaintext 
+
+[Merchant] ----(has)---- [Wallet] 
+
+[Merchant] ----(creates)---- [Transaction] 
+
+[Merchant] ----(receives)---- [Notification] 
+
+[Merchant] ----(views)---- [Report] 
+
+[Merchant] ----(is verified by)---- [Verification] 
+
+  
+
+[Admin] ----(manages)---- [Merchant] 
+
+[Admin] ----(views/generates)---- [Report] 
+
+[Admin] ----(sends)---- [Notification] 
+
+[Admin] ----(has)---- [Role] 
+
+  
+
+[Transaction] ----(belongs to)---- [Merchant] 
+
+[Transaction] ----(involves)---- [Wallet] 
+
+[Transaction] ----(generates)---- [Notification] 
+
+  
+
+[Wallet] ----(belongs to)---- [Merchant] 
+
+[Wallet] ----(has)---- [Transaction] 
+
+  
+
+[Verification] ----(verifies)---- [Merchant] 
+
+  
+
+[Notification] ----(sent to)---- [Merchant] 
+
+[Notification] ----(related to)---- [Transaction] 
+
+  
+
+[Report] ----(viewable by)---- [Merchant] 
+
+[Report] ----(generated by)---- [Admin] 
+
+  
+
+[Role] ----(assigned to)---- [Admin] 
+
+[Role] ----(has)---- [Permission] 
+
+  
+
+[Permission] ----(assigned to)---- [Role] 
+
+``` 
+
+  
+
+With the removal of the User entity, the focus is solely on merchant-related functionalities, admin management, and their interactions. Let me know if you need further adjustments! 
